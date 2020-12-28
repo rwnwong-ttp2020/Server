@@ -9,9 +9,9 @@ const keys = require('./config/keys');
 require('./services/passport');
 mongoose.connect(keys.mongoURI);
 
-const app = express();
+const app = express(); // setting up an app, that will listen for traffic
 
 require('./routes/authRoutes')(app);  // first parameter imports the authRoutes files which returns a function - we then immediately calls the fn with the app object.
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000; // use dynamic Heroku or port 5000 which would be in development
 app.listen(PORT);
