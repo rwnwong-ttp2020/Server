@@ -25,4 +25,14 @@ module.exports =(app) => {
 
     app.get('/auth/google/callback', passport.authenticate('google'));
     // this sends the code back to get the info that we want which in this case is profile and email address
+
+    app.get('/api/logout', (req, res) => {
+        req.logout();
+        res.send(req.user);
+    });
+    
+    
+    app.get('/api/current_user', (req, res) => {
+        res.send(req.user);
+    });
 };
