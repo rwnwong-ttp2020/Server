@@ -1,6 +1,5 @@
 const passport = require('passport'); // this passport has nothing to do with passport.js;  it is referring to npm passport
 
-
 module.exports =(app) => {
 
 // we are exporting this function ot index.js and it will be used by app object
@@ -25,4 +24,5 @@ module.exports =(app) => {
     //now adding on next snippet of code - a route handler to do the code exchange:
 
     app.get('/auth/google/callback', passport.authenticate('google'));
+    // this sends the code back to get the info that we want which in this case is profile and email address
 };

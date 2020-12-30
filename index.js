@@ -6,7 +6,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 //const { mongoURI } = require('./config/keys'); he doesn't have this any more when we set up Mongod
+require('./models/User'); //order matters. need to declare model first and then passport requires it second
 require('./services/passport');
+
 mongoose.connect(keys.mongoURI);
 
 const app = express(); // setting up an app, that will listen for traffic
